@@ -17,6 +17,7 @@ class DDIMSampler(object):
         self.schedule = schedule
 
     def register_buffer(self, name, attr):
+        attr = torch.from_numpy(attr)
         attr = attr.to(torch.device("cpu"))
         setattr(self, name, attr)
 
