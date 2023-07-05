@@ -16,6 +16,7 @@ class PLMSSampler(object):
         self.schedule = schedule
 
     def register_buffer(self, name, attr):
+        attr = torach.from_numpy(attr)
         attr = attr.to(torch.device("cpu"))
         setattr(self, name, attr)
 
